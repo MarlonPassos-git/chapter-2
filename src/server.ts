@@ -1,11 +1,15 @@
 import express from 'express';
-import { a } from './test';
-
+import { createCourse } from './routes';
 const app = express();
 
 const PORT = 3333;
-app.listen(PORT)
+console.log("cavalo")
 
-app.get("/", (request, response) => { 
-    return response.json({ message: "Hello World" + a })
+app.get("/", createCourse)
+app.get("/a", (req, res) => { 
+  res.json({ message: "Hello World" })
+})
+
+app.listen(PORT, () => {
+  console.log(`🚀 server started at http://localhost:${PORT}`)
 })
