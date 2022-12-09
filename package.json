@@ -9,7 +9,7 @@
     "fix:path": "node ./scripts/arrumaPath.js",
     "build": "tsc && npm run fix:path",
     "start": "node ./dist/server.js",
-    "watch": "nodemon --watch './**/*.{ts,graphql}' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' src/server.ts",
+    "watch": "nodemon --watch './**/*.{ts,graphql}' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' --inspect src/server.ts",
     "dev": "tsc-watch --onSuccess \"npm run watch\""
   },
   "keywords": [],
