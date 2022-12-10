@@ -12,6 +12,8 @@ categoriesRoutes.post('/', (req, res) => {
 	res.status(201).json({ message: 'Category created' });
 });
 
-categoriesRoutes.get('/list', (_, res) => {
-	res.status(200).json(categoriesRepository.list());
+categoriesRoutes.get('/', (_, res) => {
+	const categories = categoriesRepository.list();
+
+	res.status(200).json(categories);
 });
