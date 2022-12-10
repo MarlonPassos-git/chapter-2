@@ -1,19 +1,17 @@
 import { Router } from 'express';
-import { randomUUID } from 'node:crypto';
-import { Category } from '../models/Category';
+import { CategoriesRepository } from '../repositories/CategoriesRepository';
 
 export const categoriesRoutes = Router();
-const categories: Category[] = [];
+const categoriesRepository = new CategoriesRepository();
 
 categoriesRoutes.post('/', (req, res) => {
 	const { name, description } = req.body;
-	const categorie = new Category({ name, description, created_at: new Date() });
 
-	categories.push(categorie);
+	categoriesRepository.create({ name, description });
 
 	res.status(201).json({ message: 'Category created' });
 });
 
-categoriesRoutes.get('/all', (_, res) => {
-	res.status(200).json(categories);
+categoriesRoutes.get('/list', (_, res) => {
+	res.status(200).json(categoriesRepository.list());
 });
