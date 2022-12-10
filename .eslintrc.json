@@ -1,0 +1,50 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "google",
+    "prettier",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "jsdoc"
+  ],
+  "rules": {
+    "linebreak-style": "off",
+    "valid-jsdoc": "off",
+    "require-jsdoc": "off",
+    "quotes": [
+      "warn",
+      "single"
+    ],
+    // Força que importemos os tipos passando type
+    "@typescript-eslint/consistent-type-imports": "warn",
+    // faz que não coloquemos o ";" no final de cada linha
+    "semi": [
+      "warn",
+      "never"
+    ],
+    // coloca "," no final sempre que for possivel
+    "comma-dangle": [
+      "warn",
+      "always-multiline"
+    ],
+    // faz com que seja permitido usar () somente se necesserio em arrow function
+    "arrow-parens": [
+      "warn",
+      "as-needed"
+    ],
+    // cria uma nova linha antes do return
+    "newline-before-return": "warn",
+    // Alerta quando usamos o "!" do typescript
+    "@typescript-eslint/no-non-null-assertion": "off"
+  }
+}
