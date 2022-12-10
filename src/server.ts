@@ -1,21 +1,20 @@
 import express from 'express';
-import { createCourse } from './routes';
+import { categoriesRoutes } from './routes/categories.routes';
 const app = express();
 
 app.use(express.json());
+app.use('/categories', categoriesRoutes);
 
 const PORT = 3333;
-console.log("cavalo")
+console.log('cavalo');
 
-app.get("/", createCourse)
-app.get("/a", (req, res) => { 
-  console.log("cavalo")
+app.get('/a', (req, res) => {
+	console.log('cavalo');
 
-  const { name } = req.body
-  console.log(name)
-  res.json({ message: "Hello World" })
-})
+	console.log(req.body);
+	res.json({ message: 'Hello World' });
+});
 
 app.listen(PORT, () => {
-  console.log(`🚀 server started at http://localhost:${PORT}`)
-})
+	console.log(`🚀 server started at http://localhost:${PORT}`);
+});

@@ -7,6 +7,8 @@
   "exports": "./dist/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
+    "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "fix:path": "node ./scripts/arrumaPath.js",
     "build": "tsc && npm run fix:path",
     "start": "node ./dist/server.js",
