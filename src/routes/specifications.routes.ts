@@ -1,17 +1,9 @@
 import { Router } from 'express'
-import { CreateSpecificationService } from '../modules/cars/services/CreateSpecificationService'
-import { SpecificationRepository } from '../modules/cars/repositories/SpecificationsRepository'
+import { createSpecificationController } from '../modules/cars/useCases/createSpecification'
 
 export const specificationRoutes = Router()
-const specificationsRepository = new SpecificationRepository()
-const createSpecificationService = new CreateSpecificationService(
-	specificationsRepository,
+
+specificationRoutes.post(
+	'/',
+	createSpecificationController.handle.bind(createSpecificationController),
 )
-
-specificationRoutes.post('/', (req, res) => {
-	const { name, description } = req.body
-
-	createSpecificationService.execute({ name, description })
-
-	res.status(201).json({ message: 'Category created' })
-})

@@ -1,3 +1,4 @@
+import { isNameEqual } from '../../../utils/isNameEqual'
 import { Specification } from '../models/Specification'
 import type {
 	ICreateSpecificationDTO,
@@ -6,13 +7,21 @@ import type {
 
 class SpecificationRepository implements ISpecificationsRepository {
 	private specification: Specification[]
+	private static INSTANCE: SpecificationRepository
 
-	constructor() {
+	private constructor() {
 		this.specification = []
 	}
 
+	public static getInstance(): SpecificationRepository {
+		if (!SpecificationRepository.INSTANCE) {
+			SpecificationRepository.INSTANCE = new SpecificationRepository()
+		}
+		return SpecificationRepository.INSTANCE
+	}
+
 	findByName(name: string): Specification | undefined {
-		return this.specification.find(specification => specification.name === name)
+		return this.specification.find(isNameEqual(name))
 	}
 
 	list(): Specification[] {
