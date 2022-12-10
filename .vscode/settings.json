@@ -40,7 +40,7 @@
 		"**/react/**/*.css": true,
 		"**/package-lock.json": true,
 		"**/tsconfig.json": true,
-		"**/.eslintrc.json": true,
-		"**/.prettierrc": true
+		"**/.eslintrc.json": false,
+		"**/.prettierrc": false
 	}
 }

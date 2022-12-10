@@ -1,12 +1,12 @@
-import express from 'express';
-import { categoriesRoutes } from './routes/categories.routes';
-const app = express();
+import express from 'express'
+import { categoriesRoutes } from './routes/categories.routes'
+const app = express()
 
-app.use(express.json());
-app.use('/categories', categoriesRoutes);
+app.use(express.json())
+app.use('/categories', categoriesRoutes)
 
-const PORT = 3333;
+const PORT = 3333
 
 app.listen(PORT, () => {
-	console.log(`🚀 server started at http://localhost:${PORT}`);
-});
+	console.log(`🚀 server started at http://localhost:${PORT}`)
+})
