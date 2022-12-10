@@ -1,4 +1,4 @@
-import type { ISpecificationsRepository } from '../repositories/ISpecificatiosRepository'
+import type { ISpecificationsRepository } from '../repositories/implementations/ISpecificatiosRepository'
 
 interface Request {
 	name: string

@@ -1,4 +1,4 @@
-import type { Category } from '../models/Category'
+import type { Category } from '../../models/Category'
 
 export interface ICategoriesRepository {
 	create({ name, description }: ICreateCategoryDTO): void

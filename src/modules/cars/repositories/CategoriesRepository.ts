@@ -2,7 +2,7 @@ import { Category } from '../models/Category'
 import type {
 	ICategoriesRepository,
 	ICreateCategoryDTO,
-} from './ICategoriesRepository'
+} from './implementations/ICategoriesRepository'
 export class CategoriesRepository implements ICategoriesRepository {
 	private categories: Category[]
 	private static INSTANCE: CategoriesRepository
