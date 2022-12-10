@@ -1,11 +1,17 @@
 import { Category } from '../models/Category';
 
-interface ICreateCategoryDTO {
+export interface ICategoriesRepository {
+	create({ name, description }: ICreateCategoryDTO): void;
+	list(): Category[];
+	findByName(name: string): Category | undefined;
+}
+
+export interface ICreateCategoryDTO {
 	name: string;
 	description: string;
 }
 
-export class CategoriesRepository {
+export class CategoriesRepository implements ICategoriesRepository {
 	private categories: Category[];
 
 	constructor() {
@@ -26,5 +32,13 @@ export class CategoriesRepository {
 
 	public list(): Category[] {
 		return this.categories;
+	}
+
+	public findByName(name: string) {
+		function nameIsEqual(category: Category) {
+			return category.name === name;
+		}
+
+		return this.categories.find(nameIsEqual);
 	}
 }
