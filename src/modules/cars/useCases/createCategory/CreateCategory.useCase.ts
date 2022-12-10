@@ -1,11 +1,11 @@
-import type { CategoriesRepository } from '../repositories/CategoriesRepository'
+import type { CategoriesRepository } from '../../repositories/CategoriesRepository'
 
 interface IRequest {
 	name: string
 	description: string
 }
 
-export class CreateCategoryService {
+export class CreateCategoryUserCase {
 	constructor(private categoriesRepository: CategoriesRepository) {}
 
 	execute({ name, description }: IRequest): void {
