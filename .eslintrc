@@ -15,6 +15,8 @@
 		"new-cap": "off",
 		"valid-jsdoc": "off",
 		"require-jsdoc": "off",
+		// Nao vai deixar a gente fazer conta com string e number
+		"@typescript-eslint/restrict-plus-operands": "error",
 		"quotes": ["warn", "single"],
 		// Força que importemos os tipos passando type
 		"@typescript-eslint/consistent-type-imports": "error",
