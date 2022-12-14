@@ -46,9 +46,7 @@ class ImportCategoryUseCase {
 	#setCategoriesInRepository(categories: IImportCategory) {
 		const { name, description } = categories
 
-		const categoryAlreadyExists = this.categoriesRepository.findByName(name)
-
-		if (categoryAlreadyExists) return
+		if (this.categoriesRepository.hasCategoryByName(name)) return
 
 		this.categoriesRepository.create({ name, description })
 	}

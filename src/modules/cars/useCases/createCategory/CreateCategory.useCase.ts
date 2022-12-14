@@ -9,9 +9,7 @@ export class CreateCategoryUserCase {
 	constructor(private categoriesRepository: CategoriesRepository) {}
 
 	execute({ name, description }: IRequest): void {
-		const categoryAlreadyExists = this.categoriesRepository.findByName(name)
-
-		if (categoryAlreadyExists) {
+		if (this.categoriesRepository.hasCategoryByName(name)) {
 			throw new Error('Category already exists')
 		}
 		this.categoriesRepository.create({ name, description })
