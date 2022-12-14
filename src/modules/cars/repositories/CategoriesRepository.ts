@@ -38,4 +38,8 @@ export class CategoriesRepository implements ICategoriesRepository {
 	public findByName(name: string) {
 		return this.categories.find(isNameEqual(name))
 	}
+
+	public hasCategoryByName(name: string) {
+		return this.findByName(name) !== undefined
+	}
 }
