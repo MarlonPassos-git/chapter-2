@@ -1,4 +1,4 @@
-import { isNameEqual } from '../../../utils/isNameEqual'
+import { getFunctionIsNameEqual } from '../../../utils/getFunctionIsNameEqual'
 import { Category } from '../models/Category'
 import type {
 	ICategoriesRepository,
@@ -36,7 +36,7 @@ export class CategoriesRepository implements ICategoriesRepository {
 	}
 
 	public findByName(name: string) {
-		return this.categories.find(isNameEqual(name))
+		return this.categories.find(getFunctionIsNameEqual(name))
 	}
 
 	public hasCategoryByName(name: string) {

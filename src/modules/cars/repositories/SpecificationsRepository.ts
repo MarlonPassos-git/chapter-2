@@ -1,4 +1,4 @@
-import { isNameEqual } from '../../../utils/isNameEqual'
+import { getFunctionIsNameEqual } from '../../../utils/getFunctionIsNameEqual'
 import { Specification } from '../models/Specification'
 import type {
 	ICreateSpecificationDTO,
@@ -21,7 +21,7 @@ class SpecificationRepository implements ISpecificationsRepository {
 	}
 
 	findByName(name: string): Specification | undefined {
-		return this.specification.find(isNameEqual(name))
+		return this.specification.find(getFunctionIsNameEqual(name))
 	}
 
 	list(): Specification[] {
